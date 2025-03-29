@@ -1,0 +1,12 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background-image: linear-gradient(#d8C7ff, #19006c);
+  background-repeat: no-repeat; 
+  background-attachment: fixed;
+  background-size: cover; 
+  font-family: 'Roboto', sans-serif;
+}

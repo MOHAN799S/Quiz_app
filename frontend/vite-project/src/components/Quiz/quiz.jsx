@@ -16,9 +16,8 @@ export const Quiz = () => {
   
   useGSAP(() => {
     const timeline = gsap.timeline({defaults: {duration: 10}});
-    timeline.from('.container', {duration: 3,delay:0.5, opacity: 0, y: -50,scale:0.8});
-    timeline.from('.question', {duration: 2, opacity: 0, y: -50});
-    timeline.from('.options', {duration: 2, opacity: 0, y: -50, stagger: 0.2});
+    timeline.from('.container', {duration: 3,delay:1, opacity: 0, y: -50,scale:0.8});
+    
   })
   
   let [index, setIndex] = useState(0);

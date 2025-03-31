@@ -1,8 +1,10 @@
-import React, { useRef } from 'react'
+import React, { use, useRef } from 'react'
  import './quiz.css'
  import { useState , useEffect} from 'react'
 //  import {data} from '../../assets/data'
  import axios from 'axios'
+ import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
 
  let random_indexs = [];
 while (random_indexs.length < 10) {
@@ -11,6 +13,14 @@ while (random_indexs.length < 10) {
 }
 
 export const Quiz = () => {
+  
+  useGSAP(() => {
+    const timeline = gsap.timeline({defaults: {duration: 10}});
+    timeline.from('.container', {duration: 3,delay:0.5, opacity: 0, y: -50,scale:0.8});
+    timeline.from('.question', {duration: 2, opacity: 0, y: -50});
+    timeline.from('.options', {duration: 2, opacity: 0, y: -50, stagger: 0.2});
+  })
+  
   let [index, setIndex] = useState(0);
   let [question, setQuestion] = useState(null);
   let [lock, setLock] = useState(false);
@@ -35,18 +45,20 @@ export const Quiz = () => {
   
     fetchData();
   }, []); 
+  
 
   useEffect(() => {
     if (users.length > 0) {
       setQuestion(users[random_indexs[0]]);  
     }
   }, [users]);  
+  
+
 
   if (!question) {
-    return <div>Loading...</div>;  
+    return <div div className="container">Loading...</div>;  
   }
   var data = users;
-
 
  for(let i = 0; i < data.length; i++) {
     console.log(data[i].question);
@@ -88,19 +100,20 @@ export const Quiz = () => {
  let reset = () => {
     window.location.reload(true);
  }
+ 
   return (
     <div className='container'>
        <h1>Quiz App</h1>
        <hr />
        {result?<><h1>You Scored : {score}</h1>
        <button type="reset" className='btn'onClick={reset}>reset</button>
-       </>:<><h2>{index+1} . {
+       </>:<><h2 className='question'>{index+1} . {
 question.question}</h2>
        <ul>
-        <li ref={option1} onClick={(e)=>{checkAnswer(e,question.options[0])}}>{question.options[0]}</li>
-        <li ref={option2} onClick={(e)=>{checkAnswer(e,question.options[1])}}>{question.options[1]}</li>
-        <li  ref={option3} onClick={(e)=>{checkAnswer(e,question.options[2])}}>{question.options[2]}</li>
-        <li  ref={option4}  onClick={(e)=>{checkAnswer(e,question.options[3])}}>{question.options[3]}</li>
+        <li className='options' ref={option1} onClick={(e)=>{checkAnswer(e,question.options[0])}}>{question.options[0]}</li>
+        <li className='options' ref={option2} onClick={(e)=>{checkAnswer(e,question.options[1])}}>{question.options[1]}</li>
+        <li className='options' ref={option3} onClick={(e)=>{checkAnswer(e,question.options[2])}}>{question.options[2]}</li>
+        <li  className='options' ref={option4}  onClick={(e)=>{checkAnswer(e,question.options[3])}}>{question.options[3]}</li>
        </ul>
        <input type="button" value="next" className='btn' onClick={nextQuestion}/>
        <div className="index">{index+1} of 10 Questions</div>

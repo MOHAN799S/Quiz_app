@@ -10,3 +10,24 @@ body {
   background-size: cover; 
   font-family: 'Roboto', sans-serif;
 }
+html,body {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+/* iOS Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+  .container {
+    /* iOS Safari sometimes needs explicit max-width */
+    max-width: 100%;
+    width: 95%;
+  }
+}
+
+/* Android Chrome specific fixes */
+@supports (-webkit-appearance:none) and (not (-webkit-touch-callout:none)) {
+  body {
+    /* Force Android Chrome to respect viewport */
+    position: relative;
+    width: 100%;
+  }
+}

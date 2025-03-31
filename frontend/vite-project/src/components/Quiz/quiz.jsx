@@ -35,7 +35,7 @@ export const Quiz = () => {
     useEffect(() => {
     const fetchData = async() => {
       try {
-        const response = await axios.get(import.meta.env.VITE_EXPRESS_URL + '/quiz');
+        const response = await axios.get("https://quiz-app-backend-eeov.onrender.com");
         setUsers(response.data);
       } catch (error) {
         console.error('There was an error fetching the users!', error);

@@ -161,21 +161,21 @@
     .container {
       font-size: 10px;
       width: 85%;
-      margin: 0.8rem auto;
+      margin: 2rem auto;
       padding: 10px;
       border-width: 3px;
       border-radius: 12px;
     }
     
     h1 {
-      margin: 0.6em 0;
+      margin: 0.4em 0;
       font-size: 2em;
       padding: 8px 5px;
     }
     
     h2 {
       font-size: 1.5em;
-      margin: 0 0;
+      margin: 1px 0;
     }
     
     li {
@@ -185,7 +185,7 @@
       width: 85%;
       font-weight: 600;
     border: 1px solid black;
-    border-radius: 6px;
+    border-radius: 0.6em;
     text-align: center;
     cursor: pointer;
     text-wrap: wrap;
@@ -209,7 +209,7 @@
     
     hr {
       width: 70%;
-      margin: 1px auo;
+      margin: 0 auo;
     }
   }
   

@@ -88,7 +88,7 @@ Database (MongoDB)
 ### 1. Clone the repository
 ```bash
 git clone https://github.com/MOHAN799S/Quiz_app.git
-cd Quiz-app
+cd Quiz_app
 ```
 
 ### 2. Set up environment variables

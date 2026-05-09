@@ -1,34 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-/* =========================================================
-   GLOBAL
-========================================================= */
+
 :root{
-  --bg: #050505;
-  --bg-soft: #0b0b0b;
+  --bg: #0b0618;
 
-  --card: rgba(255,255,255,0.05);
-  --card-strong: rgba(255,255,255,0.08);
+  --card:
+    rgba(255,255,255,0.05);
 
-  --border: rgba(255,255,255,0.08);
-  --border2: rgba(244,197,66,0.22);
+  --card-strong:
+    rgba(255,255,255,0.08);
 
-  --gold: #f4c542;
-  --gold-light: #ffe27a;
-  --gold-soft: #fff4c2;
-  --gold-deep: #b8860b;
+  --primary: #8b5cf6;
+  --secondary: #c084fc;
+  --accent: #ec4899;
+
+  --border:
+    rgba(255,255,255,0.08);
+
+  --border-glow:
+    rgba(139,92,246,0.28);
 
   --text: #ffffff;
-  --text-soft: rgba(255,255,255,0.72);
 
-  --success: #00c896;
+  --text-soft:
+    rgba(255,255,255,0.72);
+
+  --success: #22c55e;
   --danger: #ff5a5a;
 
   --shadow:
-    0 10px 40px rgba(0,0,0,0.45);
+    0 12px 40px rgba(0,0,0,0.45);
 
-  --gold-shadow:
-    0 0 40px rgba(244,197,66,0.16);
+  --purple-shadow:
+    0 0 60px rgba(139,92,246,0.18);
 
   --transition:
     all 0.35s cubic-bezier(0.4,0,0.2,1);
@@ -48,8 +52,13 @@ body{
   background:
     radial-gradient(
       circle at top,
-      rgba(244,197,66,0.08),
+      rgba(139,92,246,0.12),
       transparent 30%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(236,72,153,0.10),
+      transparent 25%
     ),
     var(--bg);
 
@@ -60,69 +69,66 @@ body{
   -webkit-font-smoothing: antialiased;
 }
 
-/* =========================================================
-   CONTAINER
-========================================================= */
 .container{
   width: min(55rem, 92%);
 
   margin: 80px auto;
 
-  padding: 32px;
+  padding: 34px;
 
-  background: var(--card);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
 
-  color: var(--text);
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.05),
+      rgba(255,255,255,0.03)
+    );
 
   border:
     1px solid var(--border);
 
-  border-radius: 24px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
 
   box-shadow:
     var(--shadow),
-    inset 0 1px 0 rgba(255,255,255,0.05);
+    inset 0 1px 0 rgba(255,255,255,0.04);
 
   transition: var(--transition);
 }
 
 .container:hover{
-  border-color: var(--border2);
+  border-color:
+    var(--border-glow);
 
   box-shadow:
     var(--shadow),
-    0 0 60px rgba(244,197,66,0.10);
+    0 0 80px rgba(139,92,246,0.14);
 }
 
-/* =========================================================
-   HEADINGS
-========================================================= */
 h1{
-  padding: 10px;
-
   margin-top: 10px;
-
-  font-size: clamp(2.5rem, 5vw, 4rem);
 
   text-align: center;
 
+  font-size:
+    clamp(2.8rem, 6vw, 4.5rem);
+
   font-weight: 800;
 
-  letter-spacing: -0.04em;
+  letter-spacing: -0.05em;
 
   background:
     linear-gradient(
       135deg,
-      var(--gold-soft) 0%,
-      var(--gold) 40%,
-      var(--gold-light) 100%
+      #ffffff 0%,
+      var(--secondary) 35%,
+      var(--accent) 100%
     );
 
   -webkit-background-clip: text;
@@ -130,41 +136,39 @@ h1{
 }
 
 h2{
-  font-size: clamp(1.2rem, 3vw, 2rem);
+  text-align: center;
+
+  font-size:
+    clamp(1.2rem, 3vw, 2rem);
 
   font-weight: 600;
 
-  text-align: center;
-
   color: var(--text);
 
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
-/* =========================================================
-   OPTIONS
-========================================================= */
 li{
   width: 100%;
 
   list-style: none;
 
-  margin: 10px auto;
-
   padding: 1.3rem;
 
-  font-size: 1.15rem;
+  margin: 10px auto;
 
-  font-weight: 600;
-
-  color: var(--text-soft);
-
-  background: rgba(255,255,255,0.03);
+  border-radius: 18px;
 
   border:
     1px solid rgba(255,255,255,0.08);
 
-  border-radius: 16px;
+  background:
+    rgba(255,255,255,0.03);
+
+  color: var(--text-soft);
+
+  font-size: 1.08rem;
+  font-weight: 600;
 
   text-align: center;
 
@@ -181,53 +185,54 @@ li:hover{
     scale(1.01);
 
   border-color:
-    rgba(244,197,66,0.26);
-
-  color: var(--gold);
+    rgba(192,132,252,0.35);
 
   background:
-    rgba(244,197,66,0.08);
+    linear-gradient(
+      135deg,
+      rgba(139,92,246,0.14),
+      rgba(236,72,153,0.10)
+    );
+
+  color: #ffffff;
 
   box-shadow:
-    0 0 30px rgba(244,197,66,0.10);
+    0 0 30px rgba(139,92,246,0.12);
 }
 
-/* =========================================================
-   BUTTON
-========================================================= */
 .btn{
   position: relative;
 
   overflow: hidden;
 
-  padding: 16px 24px;
-
-  margin: 20px auto 10px;
-
   width: 220px;
 
-  font-size: 1.1rem;
-  font-weight: 700;
+  margin: 10px auto;
+
+  padding: 16px;
 
   border: none;
 
-  border-radius: 14px;
+  border-radius: 16px;
+
+  cursor: pointer;
+
+  font-size: 1.08rem;
+  font-weight: 700;
+
+  color: white;
 
   background:
     linear-gradient(
       135deg,
-      var(--gold),
-      var(--gold-light)
+      var(--primary),
+      var(--accent)
     );
 
-  color: #111;
-
-  cursor: pointer;
+  box-shadow:
+    0 10px 30px rgba(139,92,246,0.25);
 
   transition: var(--transition);
-
-  box-shadow:
-    0 10px 30px rgba(244,197,66,0.22);
 }
 
 .btn:hover{
@@ -236,7 +241,7 @@ li:hover{
     scale(1.03);
 
   box-shadow:
-    0 18px 40px rgba(244,197,66,0.30);
+    0 18px 40px rgba(139,92,246,0.34);
 }
 
 .btn::before{
@@ -249,7 +254,7 @@ li:hover{
     linear-gradient(
       120deg,
       transparent,
-      rgba(255,255,255,0.45),
+      rgba(255,255,255,0.4),
       transparent
     );
 
@@ -262,11 +267,9 @@ li:hover{
   transform: translateX(120%);
 }
 
-/* =========================================================
-   DIVIDER
-========================================================= */
+
 hr{
-  width: 70%;
+  width: 72%;
 
   margin: 10px auto;
 
@@ -278,97 +281,83 @@ hr{
     linear-gradient(
       90deg,
       transparent,
-      rgba(244,197,66,0.35),
+      rgba(192,132,252,0.35),
       transparent
     );
 }
 
-/* =========================================================
-   QUESTION INDEX
-========================================================= */
-.index{
-  font-size: 1.2rem;
 
+.index{
   text-align: center;
 
-  margin-top: 10px;
+  margin-top: 8px;
 
-  color: var(--gold);
+  font-size: 1.1rem;
 
   font-weight: 700;
+
+  color: var(--secondary);
 }
 
-/* =========================================================
-   ANSWER STATES
-========================================================= */
+
 .correct{
   background:
-    rgba(0,200,150,0.16);
+    rgba(34,197,94,0.18);
 
   border-color:
-    rgba(0,200,150,0.45);
+    rgba(34,197,94,0.35);
 
-  color: #ffffff;
+  color: white;
 
   box-shadow:
-    0 0 24px rgba(0,200,150,0.16);
+    0 0 24px rgba(34,197,94,0.16);
 
   transition: 0.4s;
 }
 
 .wrong{
   background:
-    rgba(255,90,90,0.14);
+    rgba(255,90,90,0.16);
 
   border-color:
-    rgba(255,90,90,0.35);
+    rgba(255,90,90,0.32);
 
-  color: #ffffff;
+  color: white;
 
   box-shadow:
-    0 0 24px rgba(255,90,90,0.12);
+    0 0 24px rgba(255,90,90,0.14);
 
   transition: 0.4s;
 }
 
-/* =========================================================
-   PRE
-========================================================= */
 pre{
-  font-size: 1rem;
-
-  font-weight: 500;
-
   text-align: center;
+
+  margin: 10px 0;
 
   color: var(--text-soft);
 
-  line-height: 1.7;
+  font-size: 1rem;
 
-  margin: 10px 0;
+  line-height: 1.8;
+
+  font-weight: 500;
 }
 
-/* =========================================================
-   TOUCH FEEDBACK
-========================================================= */
+
 .btn:active,
 li:active{
   transform: scale(0.98);
 }
 
-/* =========================================================
-   ACCESSIBILITY
-========================================================= */
+
 @media (prefers-reduced-motion: reduce){
   *{
-    transition: none !important;
     animation: none !important;
+    transition: none !important;
   }
 }
 
-/* =========================================================
-   PERFORMANCE
-========================================================= */
 .container,
 h1,
 h2,
@@ -379,33 +368,30 @@ li,
   backface-visibility: hidden;
 }
 
-/* =========================================================
-   MOBILE
-========================================================= */
 @media screen and (max-width: 768px){
 
   .container{
     width: 92%;
 
-    padding: 22px;
+    padding: 24px;
+
+    border-radius: 22px;
 
     margin: 40px auto;
-
-    border-radius: 18px;
   }
 
   h1{
-    font-size: 2.4rem;
+    font-size: 2.3rem;
   }
 
   h2{
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   li{
-    font-size: 0.95rem;
-
     padding: 1rem;
+
+    font-size: 0.92rem;
 
     border-radius: 14px;
   }
@@ -414,22 +400,13 @@ li,
     width: 180px;
 
     font-size: 1rem;
-
-    padding: 14px;
   }
 
   .index{
-    font-size: 1rem;
-  }
-
-  pre{
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 }
 
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
 @media screen and (max-width: 480px){
 
   .container{
@@ -440,17 +417,11 @@ li,
     font-size: 2rem;
   }
 
-  h2{
-    font-size: 1rem;
+  .btn{
+    width: 100%;
   }
 
   li{
-    font-size: 0.88rem;
-
-    padding: 0.9rem;
-  }
-
-  .btn{
-    width: 100%;
+    font-size: 0.85rem;
   }
 }
